@@ -1,4 +1,7 @@
 <%= form_with model: @author do |f| %>
     <%= f.text_field :name, placeholder: 'Nombre' %>
+    <%= f.fields_for :books do |books_form| %>
+        <%= books_form.text_field :title, placeholder: 'Título del libro' %>
+    <% end %>
     <%= f.submit 'Guardar' %>
 <% end %>
