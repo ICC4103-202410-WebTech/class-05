@@ -7,6 +7,7 @@ class AuthorsController < ApplicationController
 
     def new
         @author = Author.new
+        @author.books.build
     end
 
     def show ; end
@@ -33,7 +34,7 @@ class AuthorsController < ApplicationController
 
     private
         def author_params
-            params.require(:author).permit(:name)
+            params.require(:author).permit(:name, books_attributes: [:title])
         end
 
         def find_author
